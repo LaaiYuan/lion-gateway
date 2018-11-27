@@ -1,0 +1,25 @@
+server:
+  port: 1280
+
+spring:
+  application:
+    name: lion-gateway
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+# actuator 相关配置
+# 默认只开启 info 和 health，此配置开启所有检测
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
